@@ -1,0 +1,3 @@
+﻿u,v,beta,ci_low,ci_high,boot_ok,sig,scale_sy_over_sx,delta_p,delta_p_lo,delta_p_hi,dom_u,dom_v
+MathA_10,MathA_09,0.158603,0.157727,0.159364,600,True,0.792627,0.125713,0.125019,0.126316,量と測定,量と測定
+MathB_11,MathA_07,-0.108812,-0.109587,-0.108084,600,True,0.904258,-0.098394,-0.099095,-0.097735,数と計算,数と計算

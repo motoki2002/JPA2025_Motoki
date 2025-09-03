@@ -1,0 +1,2 @@
+﻿u,v,delta_p_1,beta_1,dom_u_1,dom_v_1,delta_p_0,beta_0,dom_u_0,dom_v_0,sign_1,sign_0,sign_agree,dp_diff,abs_diff
+MathA_10,MathA_09,0.154844,0.195356,量と測定,量と測定,0.125713,0.158603,量と測定,量と測定,1.0,1.0,True,0.029131000000000018,0.029131000000000018

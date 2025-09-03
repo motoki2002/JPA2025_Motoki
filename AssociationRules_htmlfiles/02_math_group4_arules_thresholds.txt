@@ -1,0 +1,13 @@
+Threshold parameters for 02_math_group4
+========================================
+itemset_scheme: r+na
+min_support_rel: 0.05
+min_support_abs: 20
+min_support_eff: 0.05
+max_len: 2
+metric: lift
+min_threshold: 0.0
+min_abs_phi: 0.14
+min_abs_loglift: 0.14
+fdr_alpha: 0.05
+fisher_midp: False
