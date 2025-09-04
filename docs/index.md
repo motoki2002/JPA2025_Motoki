@@ -1,10 +1,10 @@
 # Causal & Association Graph Gallery (JPA 2025)
 
 このページは GitHub Pages で公開される **インタラクティブな可視化集** です。  
-`docs/graphs/` 配下に置いた HTML を直接表示できます（PyVis/vis.js で操作可能・位置JSONのエクスポート可）。
 
-> **NOTE:** もしリンク先が 404 の場合は、該当の HTML を `docs/graphs/` にコピーしてください。  
-> 例: `html/02_math_answer.html` → `docs/graphs/02_math_answer.html`
+**Repository:** [github.com/motoki2002/JPA2025_Motoki](https://github.com/motoki2002/JPA2025_Motoki)
+
+こちらのGithubからAssociationRulesやLiNGAMの結果の詳細csvファイルなどを閲覧することができます(下記の個別リンクから飛ぶことも可能です)。
 
 ---
 
@@ -49,21 +49,12 @@
 
 ## 3) Static Figures & Tables
 
-- 図（PNG）：`figures/` → GitHub Pages で公開したい場合は、必要なものを `docs/figures/` に複製してください。
-- 追加の表/CSV：`outputs/`（リポジトリ上で参照）
+- 図（PNG）：[figures/](../figures/) (Github)
+- 追加の表/CSV：[outputs/](../outputs/)(Github)
 
 ---
 
 ## 4) Methods & Notes
 
-- **Methods（手法の概要）**：[`METHODS.md`](../METHODS.md)
-- **ポスター PDF**（学会発表用）：`poster/` に配置している場合は `docs/` 配下にもコピーすると Web から閲覧可能です。
-
----
-
-## 5) How to add new graphs
-
-1. 生成した HTML を `docs/graphs/` にコピー（または移動）  
-   例：  
-   `html/02_math_group1_answer.html` → `docs/graphs/02_math_group1_answer.html`
-2. リロードすると、このページのリンクから直接開けます。
+- **Methods（手法の概要）**：[METHODS.md](../METHODS.md)
+- **ポスター PDF**（学会発表用）：[poster/](../poster/)
