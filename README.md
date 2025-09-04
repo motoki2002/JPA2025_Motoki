@@ -54,11 +54,11 @@ LiNGAM:
 > フル版は `SCHEMA.md` を参照。
 
 ## リポジトリ構成（例）
-html/               # PyVis HTML（公開用）
-figures/              # PNG図
-runs/jsonfiles_fin/   # nodes系JSON（HTMLから保存）
-tables/               # 集計CSV
-parameters.yml
-METHODS.md
-SCHEMA.md
-README.md
+- html/               # PyVis HTML（公開用）
+- figures/              # PNG図
+- runs/jsonfiles_fin/   # nodes系JSON（HTMLから保存）
+- tables/               # 集計CSV
+- parameters.yml
+- METHODS.md
+- SCHEMA.md
+- README.md
