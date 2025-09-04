@@ -1,0 +1,101 @@
+# parameters.yml
+# Problem-to-Problem Dependencies in Elementary Math
+# Code-less reproducibility sheet for ARules & LiNGAM analyses
+
+project:
+  title: "Problem-to-Problem Dependencies in Elementary Math"
+  dataset_name: "MEXT National Assessment (Math, PUD)"
+  random_seed: 42
+  # 代表可視化は G1/G4（補助: G2/G3）
+  representative_groups: ["group1", "group4"]
+  report_units:
+    - "ARules across groups"
+    - "Direct-LiNGAM (LOO residualized) across groups"
+    - "Pooled comparison: residualized vs non-residualized"
+
+paths:
+  data_csv: "datasets/02_math_rwNA.csv"                 # 全体データ（プール）
+  grouped_dir: "datasets/grouped"                       # 例: 02_math_rwNA_group{1..4}.csv
+  domain_map_csv: "datasets/problem_domain_map.csv"     # problem_id → domain_upper
+  runs_root: "runs"                                     # 解析出力のルート
+  html_output_dir: "html"                               # 公開用HTML（GitHub Pages 推奨）
+  figures_dir: "figures"                                # 公開用PNG
+  tables_dir: "tables"                                  # 公開用CSV
+  nodes_json_dir: "runs/jsonfiles_fin"                  # HTMLからExportしたnodes系JSON
+
+data_prep:
+  standardize: "z"                     # z標準化
+  use_naflags: 0                       # 0=NAフラグを特徴に含めない
+  # 能力指標（能力=全設問の正答の単純合計のz）
+  ability_score:
+    type: "sum_z"
+    note: "IRT化は将来拡張（現状は合計z）"
+
+arules:
+  itemset_scheme: "r+na"              # 正答(r)と無回答(na)をアイテム化
+  min_support: 0.05
+  min_support_abs: 20                 # サンプル小の群でも安定
+  min_prevalence: 0.02
+  max_prevalence: 0.98
+  # 事前フィルタ：|phi| または |log(lift)| の OR 条件で絞り込み
+  prefilter:
+    min_abs_phi: 0.14
+    min_abs_loglift: 0.14
+    operator: "OR"
+  multiple_testing:
+    method: "fdr_bh"
+    alpha: 0.05
+  selection:
+    # 最終採択：FDR有意かつ符号一貫（正/負）
+    positive:
+      require_fdr_sig: true
+      phi_threshold: 0.0      # > 0 を期待
+      lift_threshold: 1.0     # > 1 を期待
+    negative:
+      require_fdr_sig: true
+      phi_threshold: 0.0      # < 0 を期待（実装側では符号で分岐）
+      lift_threshold: 1.0     # < 1 を期待
+    cross_domain_only: false  # 必要に応じて true
+    ban_na_consequent: false  # trueで「B_id が *_na」を除外
+  visualization:
+    label_metric: "phi"       # エッジラベルはφのみ
+    top_pos: 20
+    top_neg: 10
+    color_positive: "#DC143C"
+    color_negative: "#4682B4"
+
+lingam:
+  algorithm: "Direct-LiNGAM"
+  residualization:
+    mode: "resid_only"        # "resid_only" | "both" | "none"
+    method: "LOO_linear"      # LOOで各設問 ~ ability を回帰（学習者1名ずつ外す）
+    note: "情報リーク防止のためのLOO。残差XをLiNGAMへ投入。"
+  bootstrap:
+    n_boot: 600
+    min_boot_ok: 360
+    jitter: 0.008
+    subsample: 1.0
+    ci_level: 0.95
+  effect_thresholds:
+    min_abs_delta_p: 0.08     # |Δp| の下限（可視化/採択）
+  visualization:
+    top_edges: 30             # 図の最大エッジ数（|Δp|優先）
+    sort_by: "delta_p"        # "delta_p" | "beta"
+    color_positive: "#DC143C"
+    color_negative: "#4682B4"
+
+outputs:
+  export_nodes_json: true     # PyVis HTMLから座標+指標を保存
+  render_png_from_json: true  # nodes JSON → PNG（render_from_nodes_json.py）
+  keep_intermediate_csv: true # *_all.csv, *_pos.csv, *_neg.csv 等を保持
+
+reliability_checks:
+  # 残差化あり vs なし の一致度（Jaccard）、符号一致率など
+  compare_resid_vs_raw: true
+  # 群間（G1〜G4）のJaccard、ユニーク/共通ルール、方向逆転の有無など
+  compare_across_groups: true
+
+notes:
+  - "ARulesは無向（相関/共起）、LiNGAMは有向（因果候補）として明確に区別"
+  - "NAノード（*_na）の扱いは解析目的に合わせて ban_na_consequent を切替"
+  - "可視化や表は /figures /tables に整理し、READMEからリンク"
