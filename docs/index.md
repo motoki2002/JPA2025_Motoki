@@ -49,7 +49,7 @@
 
 ## 3) Static Figures & Tables
 
-- 図（PNG）：[figures/]((https://github.com/motoki2002/JPA2025_Motoki/tree/main/figures)) (Github)
+- 図（PNG）：[figures/](https://github.com/motoki2002/JPA2025_Motoki/tree/main/figures) (Github)
 - 追加の表/CSV：[outputs/](https://github.com/motoki2002/JPA2025_Motoki/tree/main/outputs)(Github)
 
 ---
