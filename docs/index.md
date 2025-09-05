@@ -6,6 +6,7 @@
 
 こちらのGithubからAssociationRulesやLiNGAMの結果の詳細csvファイルなどを閲覧することができます(下記の個別リンクから飛ぶことも可能です)。
 興味を持っていただけたらこちらのREADMEからご覧いただけますと幸いです。[README](https://github.com/motoki2002/JPA2025_Motoki/blob/main/README.md)
+
 ---
 
 ## 1) Association Rules (ARules)
