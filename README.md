@@ -1,6 +1,6 @@
 # JPA2025_Motoki
 
-# Problem-to-Problem Dependencies in Elementary Math: Association Rules & Causal Discovery
+# Examination on Inter-Item Dynamics in Achievement Tests through Data-Mining(Association Rules) and Machine-Learning Techniques(LiNGAM)
 
 本リポジトリは、全国学力・学習状況調査（算数・パブリックユースデータ）を用いて、  
 **設問間の関係性**をアソシエーションルール（ARules）と因果発見（LiNGAM）で分析した結果を公開する。  
@@ -12,6 +12,11 @@
   ①人間に解釈可能なARules、②残差化（LOO）×Direct-LiNGAMの因果候補、を**同一フレームで対比**。
 - **主な発見**：残差化後、**高学力群は疎/低学力群は密**な因果ネットワーク。  
   つまずきの連鎖が低学力群で顕在化。
+
+## 手法の特徴　わかること
+- **Association Rules(共起・相関関係・無向)** : 「問題Aと問題Bを一緒に正解しやすい」「問題Aの正解と問題Bの誤答が共起しやすい」
+- **LiNGAM(因果関係・有向)** : 「問題Aを正解すると問題Bの正解率が変動する」
+- **LOO残差化** : 「能力が高い人が正解率が高い」ことから、能力の成分を引くことで、「その問題を解ける/解けないことがどう影響するか」を見られるようにする。
 
 ## データ
 - 出典：文部科学省「全国学力・学習状況調査」パブリックユースデータ（算数）
