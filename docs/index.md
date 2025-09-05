@@ -57,4 +57,4 @@
 ## 4) Methods & Notes
 
 - **Methods（手法の概要）**：[METHODS.md](../METHODS.md)
-- **ポスター PDF**（学会発表用）：[poster/](../poster/)
+- **ポスター PDF**（学会発表用）：[poster](../poster)(Github)
