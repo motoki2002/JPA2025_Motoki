@@ -14,8 +14,13 @@
   つまずきの連鎖が低学力群で顕在化。
 
 ## データ
-- 出典：文部科学省「全国学力・学習状況調査」パブリックユースデータ（算数）https://www.mext.go.jp/a_menu/shotou/gakuryoku-chousa/sonota/1404609.htm
+- 出典：文部科学省「全国学力・学習状況調査」パブリックユースデータ（算数）
+  
+  https://www.mext.go.jp/a_menu/shotou/gakuryoku-chousa/sonota/1404609.htm
 - 取得方法：公開サイトからダウンロードし、正誤データのみを抽出し、`datasets/02_math_rwNA.csv` へ配置
+- 実際の問題や解説資料は以下から閲覧可能
+
+  (国立教育政策所　平成27年度全国学力・学習状況調査の調査問題・正答例・解説資料について https://www.nier.go.jp/15chousa/15chousa.htm)
 
 ## 成果物（抜粋）
 - 因果ネットワーク（PyVis HTML / PNG）
